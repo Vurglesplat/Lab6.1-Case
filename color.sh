@@ -15,12 +15,30 @@ default='\033[0m'
 read -p "What is your favorite color (red, green, blue, yellow or magenta)? " color
 color=${color^^}
 
-if [ -z ${color} ]; then
-	echo "You didn't enter anything!"
-	exit 1
-else
-	echo "${color} selected"
-	if [ ${color} = "RED" ]; then
+case ${color} in
+	"RED")
+		echo "${color} selected"
 		selected_color=$red
-	elif [ ${color} = "BLUE" ]; then
+		;;
+	"BLUE")
+		echo "${color} selected"
 		selected_color=$blue
+		;;
+	"GREEN")
+		echo "${color} selected"
+		selected_color=$green
+		;;
+	"YELLOW")
+		echo "${color} selected"
+		selected_color=$yellow
+		;;
+	"MAGENTA")
+		echo "${color} selected"
+		selected_color=$magenta
+		;;
+	*)
+		echo "Invalid color selected"
+		exit 1
+		;;
+esac
+exit 0
